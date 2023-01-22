@@ -1,8 +1,13 @@
+import { Store } from '@/utils/Store'
 import Head from 'next/head'
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext } from 'react'
 
 export default function Layout({title, children}) {
+
+    const {state, dispatch} = useContext(Store)
+    const {cart} = state
+
   return (
     <>      
             <Head>
@@ -20,7 +25,13 @@ export default function Layout({title, children}) {
                         </Link>
                         <div className='font-semibold'>
                             <Link legacyBehavior href='/'>
-                                <a className='p-2'>Cart</a>
+                                <a className='p-2'>Cart
+                                {cart.cartItems.length > 0 && (
+                                    <span className='ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white'>
+                                        {cart.cartItems.reduce((a,c) => a + c.quantity, 0)}
+                                    </span>
+                                )}
+                                </a>
                             </Link>
                             <Link legacyBehavior href='/'>
                                 <a className='p-2'>Login</a>
