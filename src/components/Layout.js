@@ -24,7 +24,7 @@ export default function Layout({title, children}) {
                             <a className='text-lg font-bold'>Home</a>
                         </Link>
                         <div className='font-semibold'>
-                            <Link legacyBehavior href='/'>
+                            <Link legacyBehavior href='/cart'>
                                 <a className='p-2'>Cart
                                 {cart.cartItems.length > 0 && (
                                     <span className='ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white'>

@@ -9,6 +9,8 @@ import React, { useContext } from 'react'
 export default function ProductScreen() {
     const {state, dispatch } = useContext(Store) 
 
+    const {push} = useRouter()
+
     const {query: {slug}} = useRouter()
 
     const product = data.products.find(x => x.slug === slug)
@@ -29,6 +31,7 @@ export default function ProductScreen() {
         }
         
         dispatch({type:'CART_ADD_ITEM', payload: {...product, quantity: quantity}})
+        push('/cart')
     }
 
     return (
