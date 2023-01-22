@@ -4,9 +4,7 @@ import React from 'react'
 
 export default function Layout({title, children}) {
   return (
-    <>
-       
-             
+    <>      
             <Head>
                 <title>{title ? title+' - Ecommerce' : 'Ecommerce'}</title>
                 <meta name="description" content="Ecommerce website" />
@@ -20,7 +18,7 @@ export default function Layout({title, children}) {
                         <Link legacyBehavior href='/'>
                             <a className='text-lg font-bold'>Home</a>
                         </Link>
-                        <div>
+                        <div className='font-semibold'>
                             <Link legacyBehavior href='/'>
                                 <a className='p-2'>Cart</a>
                             </Link>
