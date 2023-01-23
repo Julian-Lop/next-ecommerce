@@ -93,7 +93,7 @@ function CartScreen() {
 														<button 
 																type="button" 
 																className='primary-button x-full'
-																onClick={() => push('/shipping')}
+																onClick={() => push('login?redirect=/shipping')}
 														>Check Out</button>
 												</li>
 										</ul>

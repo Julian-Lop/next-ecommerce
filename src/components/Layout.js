@@ -38,7 +38,7 @@ export default function Layout({title, children}) {
 								)}
 								</a>
 							</Link>
-							<Link legacyBehavior href='/'>
+							<Link legacyBehavior href='/login'>
 								<a className='p-2'>Login</a>
 							</Link>
 						</div>
