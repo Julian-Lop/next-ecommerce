@@ -2,10 +2,13 @@ import CheckoutWizard from '@/components/CheckoutWizard '
 import Layout from '@/components/Layout'
 import { Store } from '@/utils/Store'
 import Cookies from 'js-cookie'
+import { useRouter } from 'next/router'
 import React, { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
 export default function ShippingScreen() {
+
+  const {push} = useRouter()
 
   const {
     handleSubmit,
@@ -42,8 +45,9 @@ export default function ShippingScreen() {
         }
       })
     )
+    push('/payment')
   }
-
+  
   return (
     <Layout title='Shipping Address'>
       <CheckoutWizard activeStep={1}/>
