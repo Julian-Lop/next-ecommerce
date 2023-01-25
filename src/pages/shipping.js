@@ -131,7 +131,7 @@ export default function ShippingScreen() {
             className='w-full' 
             id='country' 
             autoFocus 
-            {...register('county',
+            {...register('country',
               {required: 'Plese enter country',
             })}
           />
