@@ -3,24 +3,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
 
-export default function Productiitem({product}) {
+export default function ProductiItem({product, addToCartHandler}) {
 
     const {push} = useRouter()
 
     const {state, dispatch} = useContext(Store)
-
-    const addToCartHandler = () => {
-        const existItem = state.cart.cartItems.find((x) => x.slug === product.slug)
-        const quantity = existItem ? existItem.quantity + 1 : 1
-        
-        if(product.countInStock < quantity){
-            alert('Sorry, Product is out of stock')
-            return 
-        }
-        
-        dispatch({type:'CART_ADD_ITEM', payload: {...product, quantity: quantity}})
-        push('/cart')
-    }
 
     return (
         <div className='card'>
@@ -44,7 +31,7 @@ export default function Productiitem({product}) {
                 </Link>
                 <p className='mn-2'>{product.brand}</p>
                 <p>${product.price}</p>
-                <button className='primary-button' type="button" onClick={addToCartHandler}>
+                <button className='primary-button' type="button" onClick={() => addToCartHandler(product)}>
                     Add to cart
                 </button>
             </div>

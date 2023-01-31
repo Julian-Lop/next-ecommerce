@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout'
-import Productiitem from '@/components/Productiitem'
+import ProductiItem from '@/components/ProductiItem'
 import data from '@/utils/data'
 import { Inter } from '@next/font/google'
 import Product from '@/models/Product'
@@ -7,11 +7,12 @@ import db from '@/utils/db'
 import { useContext } from 'react'
 import { toast } from 'react-toastify'
 import axios from 'axios'
+import { Store } from '@/utils/Store'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({products}) {
-  const { state, dispatch } = useContext()
+  const { state, dispatch } = useContext(Store)
   const { cart } = state
 
   const addToCartHandler = async (product) => {
@@ -26,13 +27,13 @@ export default function Home({products}) {
     dispatch({type:'CART_ADD_ITEM', payload: {...product, quantity: quantity}})
     
     toast.success('Product added to the cart')
-}
+  }
 
   return (
      <Layout title={'Home Page'}>
         <div className='grid grid-cols-1 gap-4 md:grid-cols3 lg:grid-cols-4'>
           {products.map((product,i) => (
-            <Productiitem 
+            <ProductiItem 
               product={product} 
               key={product.slug+i} 
               addToCartHandler={addToCartHandler}

@@ -10,7 +10,7 @@ import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
 import { toast } from 'react-toastify'
 
-export default function ProductScreen({product,addToCartHandler}) {
+export default function ProductScreen({product}) {
     const {state, dispatch } = useContext(Store) 
 
     const {push} = useRouter()
