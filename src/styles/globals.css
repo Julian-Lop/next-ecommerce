@@ -28,3 +28,7 @@ textarea{
 .alert-error {
 	@apply my-3 rounded-lg bg-red-100 p-3 text-red-700;
 }
+
+a{
+	color: #3E49F6;
+}
